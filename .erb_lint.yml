@@ -1,0 +1,10 @@
+---
+linters:
+  ErbSafety:
+    enabled: true
+  Rubocop:
+    enabled: true
+    rubocop_config:
+      inherit_gem:
+        rubocop-fjord:
+          - "config/rubocop.yml"
