@@ -4,7 +4,7 @@
   <input type="hidden" name="_method" value="patch">
   <div>
     <label for="title">タイトル</label>
-    <input type="text" id="title" name="title" value="<%= h(@memo['title']) %>" required>
+    <input type="text" id="title" name="title" value="<%= h(@memo['title']) %>" autocomplete="off" required>
   </div>
   <div>
     <label for="content">本文</label>

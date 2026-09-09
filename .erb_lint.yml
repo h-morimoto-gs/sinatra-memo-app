@@ -1,4 +1,5 @@
 ---
+glob: "**/*.erb"
 linters:
   ErbSafety:
     enabled: true
@@ -8,3 +9,15 @@ linters:
       inherit_gem:
         rubocop-fjord:
           - "config/rubocop.yml"
+      Layout/InitialIndentation:
+        Enabled: false
+      Layout/TrailingEmptyLines:
+        Enabled: false
+      Layout/TrailingWhitespace:
+        Enabled: false
+      Naming/FileName:
+        Enabled: false
+      Style/FrozenStringLiteralComment:
+        Enabled: false
+      Lint/UselessAssignment:
+        Enabled: false
