@@ -19,9 +19,17 @@ helpers do
     load_memos.find { |memo| memo['id'] == id }
   end
 
+  def display_title(title)
+    title.to_s.empty? ? '(無題)' : title
+  end
+
   def h(text)
     Rack::Utils.escape_html(text)
   end
+end
+
+not_found do
+  erb :not_found
 end
 
 get '/' do
@@ -50,17 +58,20 @@ end
 
 get '/memos/:id' do
   @memo = find_memo(params[:id])
+  halt 404 unless @memo
   erb :show
 end
 
 get '/memos/:id/edit' do
   @memo = find_memo(params[:id])
+  halt 404 unless @memo
   erb :edit
 end
 
 patch '/memos/:id' do
   memos = load_memos
   memo = memos.find { |m| m['id'] == params[:id] }
+  halt 404 unless memo
   memo['title'] = params[:title]
   memo['content'] = params[:content]
   save_memos(memos)
