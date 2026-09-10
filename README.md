@@ -13,6 +13,7 @@ Sinatra で作ったシンプルなメモアプリです。メモは JSON ファ
 ```
 $ git clone https://github.com/h-morimoto-gs/sinatra-memo-app.git
 $ cd sinatra-memo-app
+$ git checkout feature/memo-app
 $ bundle install
 ```
 
