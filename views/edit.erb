@@ -1,0 +1,16 @@
+<h1>編集</h1>
+
+<form action="/memos/<%= h(@memo['id']) %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div>
+    <label for="title">タイトル</label>
+    <input type="text" id="title" name="title" value="<%= h(@memo['title']) %>" autocomplete="off" required>
+  </div>
+  <div>
+    <label for="content">本文</label>
+    <textarea id="content" name="content" rows="10" cols="40"><%= h(@memo['content']) %></textarea>
+  </div>
+  <button type="submit">更新</button>
+</form>
+
+<p><a href="/memos/<%= h(@memo['id']) %>">詳細に戻る</a></p>
