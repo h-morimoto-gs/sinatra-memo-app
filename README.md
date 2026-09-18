@@ -1,20 +1,29 @@
-
 # メモアプリ
 
-Sinatra で作ったシンプルなメモアプリです。メモは JSON ファイルに保存されます。
+Sinatra で作ったシンプルなメモアプリです。メモは PostgreSQL に保存されます。
 
 ## 動作環境
 
 - Ruby 4.0.6
 - Sinatra 4.2
+- PostgreSQL 17.11
 
 ## セットアップ
 
 ```
 $ git clone https://github.com/h-morimoto-gs/sinatra-memo-app.git
 $ cd sinatra-memo-app
-$ git checkout feature/memo-app
+$ git checkout feature/postgresql
 $ bundle install
+```
+
+## データベースの準備
+
+PostgreSQL を起動した状態で、以下を実行してください。
+`memo_app` データベースと `memos` テーブルが作成されます。
+
+```
+$ psql -d postgres -f db/schema.sql
 ```
 
 ## 起動方法
@@ -22,6 +31,7 @@ $ bundle install
 ```
 $ bundle exec ruby app.rb
 ```
+
 ## 機能
 
 | メソッド | パス | 機能 |
@@ -37,5 +47,5 @@ $ bundle exec ruby app.rb
 
 ## データの保存先
 
-メモは `data/memos.json` に JSON 形式で保存されます。
-このファイルはメモを保存したときに自動で作成されるため、セットアップ時に用意する必要はありません。
+メモは PostgreSQL の `memo_app` データベース内の `memos` テーブルに保存されます。
+テーブル定義は `db/schema.sql` を参照してください。
