@@ -52,7 +52,7 @@ get '/' do
 end
 
 get '/memos' do
-  @memos = load_memos
+  @memos = db.exec('SELECT id, title FROM memos ORDER BY id')
   erb :index
 end
 
