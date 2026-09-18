@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
+gem 'pg', '~> 1.6'
 gem 'puma', '~> 8.0'
 gem 'rackup', '~> 2.3'
 gem 'sinatra', '~> 4.2'

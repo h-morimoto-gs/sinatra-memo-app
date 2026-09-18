@@ -3,11 +3,22 @@
 require 'sinatra'
 require 'fileutils'
 require 'json'
+require 'pg'
 require 'securerandom'
 
 MEMOS_FILE = 'data/memos.json'
 
+configure do
+  connection = PG.connect(dbname: 'memo_app')
+  connection.field_name_type = :symbol
+  set :db, connection
+end
+
 helpers do
+  def db
+    settings.db
+  end
+
   def load_memos
     return [] unless File.exist?(MEMOS_FILE)
 
